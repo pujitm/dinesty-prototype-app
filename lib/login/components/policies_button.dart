@@ -6,7 +6,13 @@ class PoliciesButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlatButton(
       key: const Key('policies_button'),
-      child: const Text('Terms & Conditions'),
+      child: const Text(
+        'Terms & Conditions',
+        style: const TextStyle(
+          fontSize: 12.0,
+          decoration: TextDecoration.underline,
+        ),
+      ),
       onPressed: () => Navigator.push(
           context, MaterialPageRoute(builder: (c) => PoliciesPage())),
     );

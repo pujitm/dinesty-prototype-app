@@ -6,7 +6,13 @@ class AboutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlatButton(
       key: const Key('about_button'),
-      child: const Text('What is this | About'),
+      child: const Text(
+        'What is this | About',
+        style: const TextStyle(
+          decoration: TextDecoration.underline, 
+          fontSize: 12.0
+        ),
+      ),
       onPressed: () => Navigator.push(
           context, MaterialPageRoute(builder: (c) => AboutPage())),
     );
