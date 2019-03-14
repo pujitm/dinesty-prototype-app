@@ -2,16 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:logging/logging.dart';
 import 'login/login.dart';
+import 'package:colorize/colorize.dart';
 
 void main() {
   // Enable integration testing with the Flutter Driver extension.
   // See https://flutter.io/testing/ for more info.
+  enableFlutterDriverExtension();
+  _configureLogger();
+  runApp(MyApp());
+}
+
+void _configureLogger() {
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((LogRecord rec) {
-    print('[${rec.loggerName}] ${rec.level.name}: ${rec.time}: ${rec.message}');
+    var output = Colorize(
+        '[${rec.loggerName}] ${rec.level.name}: ${rec.time}: ${rec.message}');
+
+    Styles style = Styles.DEFAULT,
+        bgStyle = Styles.BG_DEFAULT; // could use for loop to apply styles
+
+    // Dart didn't like switch/case
+    if (rec.level == Level.INFO) {
+      style = Styles.CYAN;
+    } else if (rec.level == Level.WARNING) {
+      style = Styles.LIGHT_YELLOW;
+    } else if (rec.level == Level.SEVERE) {
+      style = Styles.LIGHT_RED;
+    } else if (rec.level == Level.FINE) {
+      style = Styles.GREEN;
+    } else {
+      style = Styles.ITALIC;
+    }
+
+    output.apply(style).apply(bgStyle);
+
+    print(output);
   });
-  enableFlutterDriverExtension();
-  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
