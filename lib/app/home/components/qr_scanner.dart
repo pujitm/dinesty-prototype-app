@@ -9,7 +9,7 @@ class QrScanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 400,
-      height: 400,
+      height: 200,
       child: QrCamera(
         qrCodeCallback: (code) {
           _log.info('Code: $code');

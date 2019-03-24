@@ -8,15 +8,20 @@ import 'components/password.dart';
 import 'components/submit_button.dart';
 import 'components/legal_confirmation.dart';
 
-class RegistrationPage extends StatelessWidget {
+class RegistrationPage extends StatefulWidget {
+  static bool legalConfirmation = false;
+
+  @override
+  _RegistrationPageState createState() => _RegistrationPageState();
+}
+
+class _RegistrationPageState extends State<RegistrationPage> {
   final TextEditingController name = TextEditingController(),
       email = TextEditingController(),
       phoneNumber = TextEditingController(),
       password = TextEditingController();
 
   DateTime _date;
-
-  static bool legalConfirmation = false;
 
   final _formKey = GlobalKey<FormState>();
 
@@ -26,21 +31,26 @@ class RegistrationPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Creating a New Account'),
       ),
-      body: Center(
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              NameInput(name),
-              EmailInput(email),
-              PhoneNumberInput(phoneNumber),
-              BirthdayInput(_date),
-              PasswordInput(password),
-              PasswordConfirmation(password),
-              LegalConfirmation(),
-              SubmitRegistrationButton(_formKey, submitCallback),
-            ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  NameInput(name),
+                  EmailInput(email),
+                  PhoneNumberInput(phoneNumber),
+                  BirthdayInput(_date),
+                  PasswordInput(password),
+                  PasswordConfirmation(password),
+                  LegalConfirmation(),
+                  SubmitRegistrationButton(_formKey, submitCallback),
+                ],
+              ),
+            ),
           ),
         ),
       ),

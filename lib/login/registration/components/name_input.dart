@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class NameInput extends StatelessWidget {
-  NameInput(this.textController);
-
   /// The Text Editing Controller for the form field
   final TextEditingController textController;
+  NameInput(this.textController);
 
   @override
   Widget build(BuildContext context) {

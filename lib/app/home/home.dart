@@ -13,16 +13,20 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          QrScanner(),
-          ListView(
-            children: <Widget>[
-              RestaurantTile(name: 'hi',)
-            ],
-          )
-        ],
-      ),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            QrScanner(),
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  RestaurantTile(
+                    name: 'hi',
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
     );
   }
 }

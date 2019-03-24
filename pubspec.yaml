@@ -38,6 +38,12 @@ dev_dependencies:
     sdk: flutter
   test: 1.5.2
   colorize:
+  flutter_launcher_icons:
+
+flutter_icons:
+  android: true 
+  ios: true
+  image_path: "assets/icon/icon.png"
 
 
 # For information on the generic Dart part of this file, see the

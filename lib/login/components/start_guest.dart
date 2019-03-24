@@ -1,3 +1,4 @@
+import 'package:dinesty_proto/app/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
@@ -11,6 +12,7 @@ class StartAsGuestButton extends StatelessWidget {
       child: const Text('Start as Guest'),
       onPressed: () {
         _log.info('pressed start as guest button');
+        Navigator.push(context, MaterialPageRoute(builder: (c) => HomePage()));
       },
     );
   }
