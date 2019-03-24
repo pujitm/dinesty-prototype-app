@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import '../registration/registration.dart';
 
 final Logger _log = Logger('register_button');
 
@@ -10,7 +11,8 @@ class RegisterButton extends StatelessWidget {
       key: const Key('register_button'),
       child: const Text('Register'),
       onPressed: () {
-        _log.info('Pressed Register button');
+        // _log.info('Pressed Register button');
+        Navigator.push(context, MaterialPageRoute(builder: (c) => RegistrationPage()));
       },
     );
   }
